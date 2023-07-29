@@ -8,19 +8,17 @@ const { login } = require('../controllers/authController');
 
 // Routes for create user 
 router.post('/signup', userController.createUser);
+// get all property
+router.get('/property', propertyController.getAllProperty);
+// get all workspaces
+router.get('/workspace', workspaceController.getAllWorkspace);
+
 // Route for user login
 router.post('/login', login);
-
-// property
-router.post('property/create', propertyController.createProperty);
-// get all property
-router.post('property/', propertyController.getAllProperty);
 
 // Route for workspace
 // create/add workspace
 router.post('/workspace/create', workspaceController.createWorkspace);
-// get all workspaces
-router.post('/workspace/', workspaceController.getAllWorkspace);
 
 
 // Middleware for protecting routes
@@ -53,6 +51,8 @@ router.put('/users/:id', userController.updateUser);
 // Route for delete user
 router.delete('/users/:id', userController.deleteUser);
 
+// property
+router.post('/property/create', propertyController.createProperty);
 
 // Protected route for getting user data
 router.get('/', (req, res) => {
