@@ -16,6 +16,13 @@ router.post('property/create', propertyController.createProperty);
 // get all property
 router.post('property/', propertyController.getAllProperty);
 
+// Route for workspace
+// create/add workspace
+router.post('/workspace/create', workspaceController.createWorkspace);
+// get all workspaces
+router.post('/workspace/', workspaceController.getAllWorkspace);
+
+
 // Middleware for protecting routes
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -46,11 +53,6 @@ router.put('/users/:id', userController.updateUser);
 // Route for delete user
 router.delete('/users/:id', userController.deleteUser);
 
-// Route for workspace
-// create/add workspace
-router.post('/workspace/create', workspaceController.createWorkspace);
-// get all workspaces
-router.post('/workspace/', workspaceController.getAllWorkspace);
 
 // Protected route for getting user data
 router.get('/', (req, res) => {
