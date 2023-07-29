@@ -3,12 +3,18 @@ const jwt = require('jsonwebtoken'); // Import jsonwebtoken library
 const router = express.Router();
 const userController = require('../controllers/userController');  //  user controller
 const workspaceController = require('../controllers/workspaceController');  //  workspace controller
+const propertyController = require('../controllers/propertyController');  //  property controller
 const { login } = require('../controllers/authController');
 
 // Routes for create user 
 router.post('/signup', userController.createUser);
 // Route for user login
 router.post('/login', login);
+
+// property
+router.post('property/create', propertyController.createProperty);
+// get all property
+router.post('property/', propertyController.getAllProperty);
 
 // Middleware for protecting routes
 const authenticateToken = (req, res, next) => {
